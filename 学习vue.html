@@ -8,14 +8,32 @@
 </head>
 <body>
     <div id="app">
-      {{ message }}
+      <h2 v-text="message+'祝你天天开心!'"></h2>
+      <h2 v-text="message2"></h2>
+      <h2>{{ youyizhelianxiwo.yemianzhizuo }} {{ youyizhelianxiwo.name }} {{youyizhelianxiwo.mobile}} </h2>
+      <ul>
+        <li> {{xingyunermen[0]}} </li>
+        <li> {{xingyunermen[1]}} </li>
+        <li> {{xingyunermen[2]}} </li>
+        <li> {{xingyunermen[3]}} </li>
+      </ul>
     </div>
     <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var app = new Vue({
+            //el:"#app",
+            //el:".app",
+            //el:"div",
             el:"#app",
             data:{
-                message:" 2024 龙年大吉！ "
+                message:" 2024 龙年大吉,",
+                message2:"今年你脱单了嘛？",
+                youyizhelianxiwo:{
+                    yemianzhizuo:"需要媒人请联系：",
+                    name:"Chenooby",
+                    mobile:"176-6973-3967"
+                },
+                xingyunermen:["chun:jbhgvhjjbjjv","xia:dgdxfgchf","qiu:ghvhghf","dong:hjhbvghxers"]
             }
         }
         )
