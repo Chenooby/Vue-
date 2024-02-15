@@ -10,6 +10,7 @@
     <div id="app">
       <h2 v-text="message+'祝你天天开心!'"></h2>
       <h2 v-text="message2"></h2>
+      <p v-html="content"></p>
       <h2>{{ youyizhelianxiwo.yemianzhizuo }} {{ youyizhelianxiwo.name }} {{youyizhelianxiwo.mobile}} </h2>
       <ul>
         <li> {{xingyunermen[0]}} </li>
@@ -29,14 +30,103 @@
                 message:" 2024 龙年大吉,",
                 message2:"今年你脱单了嘛？",
                 youyizhelianxiwo:{
-                    yemianzhizuo:"需要媒人请联系：",
+                    yemianzhizuo:"需要加我请联系：",
                     name:"Chenooby",
                     mobile:"176-6973-3967"
                 },
-                xingyunermen:["chun:jbhgvhjjbjjv","xia:dgdxfgchf","qiu:ghvhghf","dong:hjhbvghxers"]
+                xingyunermen:["chun:喜欢十八度的春风","xia:爱吃夏日的冰激凌","qiu:没感觉你来过","dong:喜欢冬日的暖阳"],
+                content:"<a href='https://www.douyin.com/user/self?modal_id=7322841127831457033&showTab=like' target='_blank'>yiqi变le</a>"
             }
         }
         )
     </script>
+    <div id="app2">
+        <p>随便挑选一个人嘿嘿！</p>
+        <input type="button" value="边伯贤" v-on:click="doIt">
+        <input type="button" value="吴世勋" v-on:click="doIt2">
+        <input type="button" value="朴宰范" v-on:click="doIt3">
+        <input type="button" value="陈雪莹" v-on:click="doIt4">
+        <h2 @click="changeFood">{{ food }}</h2>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app2 = new Vue({
+            el:"#app2",
+            data:{
+                food:"朴宰范"
+            },
+            methods:{
+                doIt:function(){
+                    alert("别人吃炸鸡我也吃，别人喝奶茶我也喝，别人搞蛋糕我也搞，别人九十斤我不吭声。")
+                },
+                doIt2:function(){
+                    alert("你住的城市下雨了，不知道你有没有带伞，没带的话希望下得再大点！")
+                },
+                doIt3:function(){
+                    alert("不是我回信息慢，俗话说得好，天上一日，地上一年，所以不是本仙女回复得慢，是我们之间存在时差。")
+                },
+                doIt4:function(){
+                    alert("嘿嘿，点我你算是点到美女了！")
+                },
+                changeFood:function(){
+                    this.food+="好帅！"
+                }
+            },
+        });
+    </script>
+<div id="app3">
+    <p>鸡蛋灌饼想加几个鸡蛋？</p>
+    <div class="input-num">
+        <button @click="sub">-</button>
+        <span> {{num}} </span>
+        <button @click="add">+</button>
+    </div>
+</div>
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app3 = new Vue({
+            el:"#app3",
+            data:{
+                num:0
+            },
+            methods:{
+                add:function(){
+                    if(this.num<3){
+                    this.num++;
+                    }
+                    else{
+                    alert("姐妹想什么好事呢？");
+                }
+                },
+                sub:function(){
+                    if(this.num>0){
+                    this.num--;
+                    }
+                    else{
+                    alert("想干什么？");
+                }
+                }
+            }
+        })
+    </script>
+<div id="app4">
+    <button @click="change">想不想看我的宝贝仓鼠？</button>
+    <img v-show="isShow" src="./img/cangshu.jpg" alt="">
+</div>
+<script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app4 = new Vue({
+        el:"#app4",
+        date:{
+            isShow:false
+        },
+        methods:{
+            change:function(){
+                this.isShow = !this.isShow;
+            }
+                
+            }
+        })//出问题了！
+</script>
 </body>
 </html>
